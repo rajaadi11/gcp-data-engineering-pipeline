@@ -1,9 +1,17 @@
 from pathlib import Path
+import os
 
+from dotenv import load_dotenv
 from google.cloud import bigquery
 
 
-PROJECT_ID = "fluted-lambda-507018-p8"
+load_dotenv()
+
+PROJECT_ID = os.getenv("PROJECT_ID")
+
+if not PROJECT_ID:
+    raise ValueError("PROJECT_ID is not configured in .env")
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 VIEWS_DIR = BASE_DIR / "sql" / "views"
