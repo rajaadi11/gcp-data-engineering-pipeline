@@ -93,3 +93,4 @@ FROM `fluted-lambda-507018-p8.sales_dataset.sales_table`
 
 GROUP BY discount_range
 ORDER BY discount_range;
+

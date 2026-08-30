@@ -44,6 +44,12 @@ def main():
         "BIGQUERY LOAD",
         [sys.executable, "scripts/load_to_bigquery.py"]
     )
+    
+    # Step 4: Deploy analytical views
+    run_step(
+        "BIGQUERY ANALYTICS VIEWS",
+        [sys.executable, "scripts/deploy_views.py"]
+    )
 
     print()
     print("=" * 60)
