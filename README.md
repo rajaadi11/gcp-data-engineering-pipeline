@@ -1,117 +1,134 @@
-# 🚀 GCP Data Engineering Pipeline
+# 🚀 GCP Sales Analytics Pipeline
 
 <p align="center">
+  <strong>An End-to-End Cloud Data Engineering & Analytics Pipeline</strong><br>
+  Python · Pandas · SQL · Google BigQuery · Looker Studio
+</p>
 
-**An End-to-End Cloud Data Engineering & Analytics Pipeline**
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Google%20Cloud-GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud">
+  <img src="https://img.shields.io/badge/BigQuery-Data%20Warehouse-4285F4?style=for-the-badge&logo=googlebigquery&logoColor=white" alt="BigQuery">
+  <img src="https://img.shields.io/badge/SQL-Analytics-CC2927?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL">
+  <img src="https://img.shields.io/badge/Looker%20Studio-BI-F9AB00?style=for-the-badge&logo=google&logoColor=white" alt="Looker Studio">
+</p>
 
-Built with **Python · Pandas · SQL · Google BigQuery · GCP**
-
-<br/>
-
-<img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-<img src="https://img.shields.io/badge/Google%20Cloud-GCP-orange?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud"/>
-<img src="https://img.shields.io/badge/BigQuery-Data%20Warehouse-4285F4?style=for-the-badge&logo=googlebigquery&logoColor=white" alt="BigQuery"/>
-<img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"/>
-<img src="https://img.shields.io/badge/SQL-Analytics-CC2927?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL"/>
-
-<br/>
-
-<img src="https://img.shields.io/badge/ETL-Pipeline-success?style=flat-square" alt="ETL"/>
-<img src="https://img.shields.io/badge/Data%20Quality-Automated-success?style=flat-square" alt="Data Quality"/>
-<img src="https://img.shields.io/badge/Cloud%20Analytics-BigQuery-blue?style=flat-square" alt="Cloud Analytics"/>
-<img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status"/>
-
+<p align="center">
+  <a href="https://datastudio.google.com/reporting/9d39935f-bfc1-4080-a934-7f7d720dbeb5/page/aOo7F">
+    <strong>📊 View Interactive Dashboard</strong>
+  </a>
 </p>
 
 ---
 
 ## 📌 Overview
 
-**GCP Data Engineering Pipeline** is an end-to-end data engineering project that transforms raw retail sales data into a **clean, validated, analytics-ready dataset** and loads it into **Google BigQuery** for analytical processing.
+**GCP Sales Analytics Pipeline** is an end-to-end data engineering project that transforms raw retail transaction data into a clean, validated, analytics-ready dataset and loads it into **Google BigQuery** for analytical processing.
 
-The project demonstrates a practical data engineering workflow covering:
+The project demonstrates a practical workflow:
 
-> **Data Ingestion → Exploration → Cleaning → Validation → Cloud Data Warehouse → SQL Analytics → Business Insights**
+> **Ingestion → Exploration → Cleaning → Validation → BigQuery → SQL Analytics → Interactive BI Dashboard**
 
-The pipeline is designed with a modular structure so individual stages can be developed, tested, and extended independently.
+The pipeline is modular and orchestrated through a single Python entry point, making the workflow reproducible and easy to extend.
+
+---
+
+## 🎯 Project Highlights
+
+- 🐍 Python/Pandas ETL pipeline
+- 🧹 Data cleaning and standardization
+- 🛡️ Automated data-quality validation
+- ☁️ Google BigQuery data warehouse
+- 🗃️ Explicit BigQuery schema
+- 📊 SQL analytical views and KPI queries
+- 📈 Interactive Looker Studio dashboard
+- 🎛️ Category and date-range filtering
+- 🔐 Environment-based configuration and credential safety
+- 🧩 Modular project structure
+- 📝 Git/GitHub version control
 
 ---
 
 ## ⚡ At a Glance
 
-| Metric               |              Result |
-| -------------------- | ------------------: |
-| 📦 Records Processed |           **9,993** |
-| 🧱 Columns           |               **9** |
-| ❌ Missing Values     |               **0** |
-| 🔁 Duplicate Records |               **0** |
-| ☁️ Cloud Warehouse   | **Google BigQuery** |
-| 🗃️ Dataset          | **`sales_dataset`** |
-| 📊 Table             |   **`sales_table`** |
-| 💰 Total Sales       |    **2,296,919.49** |
-| 📈 Total Profit      |      **286,409.08** |
-| 📦 Total Quantity    |          **37,871** |
-| 🏷️ Avg. Discount    |        **≈ 15.62%** |
+| Metric | Result |
+|---|---:|
+| Records before cleaning | 9,994 |
+| Records after cleaning | **9,993** |
+| Columns | **9** |
+| Final missing values | **0** |
+| Final duplicate records | **0** |
+| Total Sales | **2,296,919.49** |
+| Total Profit | **286,409.08** |
+| Total Orders | **5,009** |
+| Total Quantity | **37,871** |
+| Average Discount | **≈ 15.62%** |
+| BigQuery Dataset | `sales_dataset` |
+| BigQuery Table | `sales_table` |
+
+> One duplicate record was removed during the cleaning stage. The final validated dataset contains 9,993 records with zero remaining duplicates.
 
 ---
 
 # 🏗️ Architecture
 
 ```text
-                         ┌──────────────────────┐
-                         │    RAW CSV DATA      │
-                         │    sales_data.csv    │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   DATA EXPLORATION   │
-                         │     Python/Pandas    │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │    DATA CLEANING     │
-                         │     Python/Pandas    │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │   DATA VALIDATION    │
-                         │   Quality Checks     │
-                         └──────────┬───────────┘
-                                    │
-                              PASS / FAIL
-                                    │
-                                    ▼
-                    ┌──────────────────────────────┐
-                    │      CLEANED DATASET         │
-                    │ cleaned_sales_data.csv       │
-                    └──────────────┬───────────────┘
-                                   │
-                                   ▼
-                         ┌──────────────────────┐
-                         │    GOOGLE CLOUD      │
-                         │       BigQuery       │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │    sales_dataset     │
-                         │          ↓           │
-                         │     sales_table      │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │    ANALYTICAL SQL    │
-                         │    KPI & Analysis    │
-                         └──────────┬───────────┘
-                                    │
-                                    ▼
-                         ┌──────────────────────┐
-                         │  BUSINESS INSIGHTS   │
-                         └──────────────────────┘
+                    ┌──────────────────────┐
+                    │      RAW CSV DATA    │
+                    │    sales_data.csv    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │  DATA EXPLORATION    │
+                    │    Python / Pandas   │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    DATA CLEANING     │
+                    │    Python / Pandas   │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   DATA VALIDATION    │
+                    │ Schema & Quality     │
+                    │       Checks         │
+                    └──────────┬───────────┘
+                               │
+                         PASS / FAIL
+                               │
+                         ┌─────┴─────┐
+                         │           │
+                       FAIL         PASS
+                         │           │
+                       STOP          ▼
+                           ┌──────────────────────┐
+                           │  CLEANED DATASET     │
+                           │ cleaned_sales_data   │
+                           │       .csv            │
+                           └──────────┬───────────┘
+                                      │
+                                      ▼
+                           ┌──────────────────────┐
+                           │     GOOGLE CLOUD     │
+                           │       BigQuery       │
+                           └──────────┬───────────┘
+                                      │
+                         ┌────────────┴────────────┐
+                         │                         │
+                         ▼                         ▼
+                  ┌──────────────┐        ┌──────────────────┐
+                  │ sales_table  │        │ Analytical Views │
+                  └──────┬───────┘        └────────┬─────────┘
+                         │                           │
+                         └────────────┬──────────────┘
+                                      ▼
+                           ┌──────────────────────┐
+                           │   LOOKER STUDIO      │
+                           │ Interactive Dashboard│
+                           └──────────────────────┘
 ```
 
 ---
@@ -120,69 +137,67 @@ The pipeline is designed with a modular structure so individual stages can be de
 
 ```text
 01  Extract
-     │
-     ▼
+      ↓
 02  Explore
-     │
-     ▼
+      ↓
 03  Transform
-     │
-     ▼
+      ↓
 04  Validate
-     │
-     ▼
+      ↓
 05  Load → BigQuery
-     │
-     ▼
+      ↓
 06  Analyze → SQL
-     │
-     ▼
-07  Insights
+      ↓
+07  Visualize → Looker Studio
+      ↓
+08  Business Insights
 ```
 
-### Pipeline stages
-
-| Stage         | Purpose                         | Technology      |
-| ------------- | ------------------------------- | --------------- |
-| **Extract**   | Read raw retail data            | CSV             |
-| **Explore**   | Understand structure & quality  | Python + Pandas |
-| **Transform** | Clean & standardize records     | Python + Pandas |
-| **Validate**  | Verify data quality             | Python          |
-| **Load**      | Store analytics-ready data      | BigQuery        |
-| **Analyze**   | Generate business metrics       | SQL             |
-| **Insight**   | Understand business performance | SQL Analysis    |
-
----
-
-# 🎯 Project Objectives
-
-The project focuses on building a reliable and reproducible data pipeline capable of:
-
-* Processing raw CSV sales data.
-* Exploring dataset structure and distributions.
-* Cleaning and standardizing records.
-* Removing duplicate records.
-* Handling missing values.
-* Converting columns to appropriate data types.
-* Validating data against business rules.
-* Loading cleaned data into BigQuery.
-* Managing an explicit BigQuery schema.
-* Performing analytical SQL queries.
-* Generating business KPIs.
-* Analyzing regional performance.
-* Analyzing category performance.
-* Studying monthly sales trends.
-* Identifying profitable products.
-* Evaluating discount vs. profitability.
-* Orchestrating the pipeline through a single Python entry point.
+| Stage | Purpose | Technology |
+|---|---|---|
+| Extract | Read raw retail data | CSV |
+| Explore | Understand structure and quality | Python + Pandas |
+| Transform | Clean and standardize records | Python + Pandas |
+| Validate | Verify data quality and business rules | Python |
+| Load | Store analytics-ready data | BigQuery |
+| Analyze | Generate KPIs and analytical datasets | SQL |
+| Visualize | Build interactive analytics | Looker Studio |
+| Insight | Interpret business performance | SQL + BI |
 
 ---
 
-# 📊 Dataset
+# 📊 Dashboard
 
-The pipeline processes a retail sales dataset containing transactional information.
+The final dashboard provides:
 
-### Dataset Dimensions
+- **Total Sales**
+- **Total Profit**
+- **Total Orders**
+- **Total Quantity**
+- **Monthly Sales & Profit Trend**
+- **Category Performance**
+- **Regional Performance**
+- **Top 5 Products by Profit**
+- **Category filter**
+- **Date-range filter**
+
+### Dashboard Preview
+
+![GCP Sales Analytics Dashboard](docs/images/dashboard.png)
+
+### 🔗 Live Interactive Dashboard
+
+**[Open GCP Sales Analytics Dashboard](https://datastudio.google.com/reporting/9d39935f-bfc1-4080-a934-7f7d720dbeb5/page/aOo7F)**
+
+> The dashboard uses the granular `sales_table` as the interactive source so category and date controls can filter the KPIs and visualizations consistently.
+
+---
+
+# 📁 Dataset
+
+The pipeline processes transactional retail sales data.
+
+### Dataset dimensions
 
 ```text
 Records before cleaning : 9,994
@@ -190,59 +205,53 @@ Records after cleaning  : 9,993
 Columns                 : 9
 ```
 
-One duplicate record was removed during the cleaning process.
+### Schema
 
-### Dataset Schema
-
-```text
-order_id
-date
-region
-category
-product
-sales
-quantity
-discount
-profit
-```
+| Column | Type | Description |
+|---|---|---|
+| `order_id` | STRING | Order identifier |
+| `date` | DATE | Transaction date |
+| `region` | STRING | Sales region |
+| `category` | STRING | Product category |
+| `product` | STRING | Product name |
+| `sales` | FLOAT | Sales amount |
+| `quantity` | INTEGER | Quantity sold |
+| `discount` | FLOAT | Discount applied |
+| `profit` | FLOAT | Profit generated |
 
 ---
 
 # 🧹 Data Engineering Workflow
 
-## 1️⃣ Data Exploration
+## 1. Data Exploration
 
-`data_exploration.py`
+**`scripts/data_exploration.py`**
 
-The exploration stage provides an initial understanding of the dataset.
+Examines:
 
-It examines:
-
-* Dataset shape.
-* Column names.
-* Data types.
-* Numerical statistics.
-* Unique values.
-* Category distribution.
-* Regional distribution.
-* Potential data quality issues.
+- Dataset shape
+- Column names
+- Data types
+- Numerical statistics
+- Unique values
+- Category distribution
+- Regional distribution
+- Potential quality issues
 
 ---
 
-## 2️⃣ Data Cleaning
+## 2. Data Cleaning
 
-`data_cleaning.py`
+**`scripts/data_cleaning.py`**
 
-The cleaning stage transforms raw data into a standardized dataset.
-
-### Operations
+The cleaning stage:
 
 ```text
 Raw CSV
    │
    ├── Standardize column names
    ├── Handle missing values
-   ├── Remove duplicates
+   ├── Remove duplicate records
    ├── Convert data types
    ├── Standardize dates
    └── Save cleaned dataset
@@ -262,42 +271,40 @@ data/cleaned_sales_data.csv
 
 ---
 
-## 3️⃣ Data Validation
+## 3. Data Validation
 
-`data_validation.py`
+**`scripts/data_validation.py`**
 
-Before cloud ingestion, the cleaned dataset passes through automated quality checks.
-
-### Validation checks
+Automated quality checks include:
 
 ```text
-✓ Schema Validation
-✓ Missing Value Detection
-✓ Duplicate Detection
-✓ Quantity Validation
-✓ Sales Validation
-✓ Discount Validation
+✓ Schema validation
+✓ Missing-value detection
+✓ Duplicate detection
+✓ Quantity validation
+✓ Sales validation
+✓ Discount validation
 ```
 
-### Validation Result
+### Final validation result
 
 ```text
-DATA QUALITY VALIDATION COMPLETE
-
-Total records:       9993
-Total columns:       9
-Total missing:       0
-Total duplicates:    0
-Invalid quantities:  0
-Invalid sales:       0
-Invalid discounts:   0
+Total records:        9993
+Total columns:        9
+Total missing:        0
+Total duplicates:     0
+Invalid quantities:   0
+Invalid sales:        0
+Invalid discounts:    0
 ```
+
+If validation fails, the pipeline stops before the BigQuery load.
 
 ---
 
-# ☁️ Google Cloud Integration
+# ☁️ Google BigQuery
 
-The cleaned dataset is loaded into **Google BigQuery**, which acts as the analytical data warehouse.
+BigQuery acts as the analytical cloud data warehouse.
 
 ```text
 Google Cloud Project
@@ -306,13 +313,13 @@ Google Cloud Project
      BigQuery
         │
         ▼
-  sales_dataset
+ sales_dataset
         │
         ▼
-   sales_table
+  sales_table
 ```
 
-### BigQuery Table
+### BigQuery table
 
 ```text
 Dataset : sales_dataset
@@ -321,324 +328,73 @@ Rows    : 9,993
 Columns : 9
 ```
 
----
-
-# 🗃️ BigQuery Schema
-
-| Column     | Type    | Description             |
-| ---------- | ------- | ----------------------- |
-| `order_id` | STRING  | Unique order identifier |
-| `date`     | DATE    | Transaction date        |
-| `region`   | STRING  | Sales region            |
-| `category` | STRING  | Product category        |
-| `product`  | STRING  | Product name            |
-| `sales`    | FLOAT   | Sales amount            |
-| `quantity` | INTEGER | Quantity sold           |
-| `discount` | FLOAT   | Discount applied        |
-| `profit`   | FLOAT   | Profit generated        |
-
-An explicit schema is used during the BigQuery loading process rather than relying completely on automatic schema detection.
+An explicit schema is used during the load process rather than relying entirely on automatic schema detection.
 
 ---
 
-# 📁 Project Structure
+# 🗃️ SQL Analytics Layer
+
+The SQL layer contains reusable analytical views and business queries.
+
+### Analytical views
 
 ```text
-gcp-data-engineering-pipeline/
-│
-├── 📂 data/
-│   ├── sales_data.csv
-│   └── cleaned_sales_data.csv
-│
-├── 📂 scripts/
-│   ├── data_exploration.py
-│   ├── data_cleaning.py
-│   ├── data_validation.py
-│   └── load_to_bigquery.py
-│
-├── 📂 sql/
-│   └── analysis_queries.sql
-│
-├── 📄 run_pipeline.py
-├── 📄 requirements.txt
-├── 📄 README.md
-└── 📄 .gitignore
+sql/views/
+├── category_performance.sql
+├── monthly_sales.sql
+├── product_performance.sql
+├── regional_performance.sql
+├── sales_summary.sql
+└── top_products.sql
 ```
 
----
-
-# 🧩 Project Components
-
-### 🔍 `data_exploration.py`
-
-Performs exploratory analysis of the raw dataset.
-
----
-
-### 🧹 `data_cleaning.py`
-
-Handles:
-
-* CSV ingestion.
-* Column standardization.
-* Missing-value handling.
-* Duplicate removal.
-* Data-type conversion.
-* Basic consistency checks.
-* Cleaned dataset generation.
-
----
-
-### 🛡️ `data_validation.py`
-
-Performs automated data quality validation.
+### Core analysis
 
 ```text
-Schema
-Missing Values
-Duplicates
-Quantity
-Sales
-Discount
+Overall KPIs
+Regional Performance
+Category Performance
+Monthly Sales & Profit
+Product Profitability
+Discount vs Profitability
+Top Products
 ```
 
 ---
 
-### ☁️ `load_to_bigquery.py`
+# 📈 Business Insights
 
-Handles:
+### 🥇 Regional Performance
 
-* BigQuery authentication.
-* Client creation.
-* Cleaned CSV ingestion.
-* Schema definition.
-* BigQuery load job.
-* Load verification.
-* Row-count verification.
+**West** is the highest-sales region in the analyzed dataset.
 
----
+### 🏷️ Category Performance
 
-### ⚙️ `run_pipeline.py`
+**Technology** leads the categories in both total sales and total profit.
 
-Acts as the pipeline orchestration layer.
+### 💸 Discount vs Profitability
 
-Run the entire pipeline with:
+Higher discount ranges show substantially weaker profitability in this dataset, with some high-discount ranges producing negative total profit.
 
-```bash
-python run_pipeline.py
-```
+> **High revenue does not necessarily mean high profitability.**
 
-Execution flow:
+### 📅 Monthly Trends
 
-```text
-run_pipeline.py
-      │
-      ├── Data Cleaning
-      │
-      ├── Data Validation
-      │
-      └── BigQuery Load
-```
-
-If a pipeline stage fails, execution stops and the failure is reported.
+Monthly aggregation allows the business to compare sales and profit across time and identify stronger and weaker periods.
 
 ---
 
-# 📈 Analytics Layer
+# 🧪 Data Quality
 
-The SQL analytics layer is maintained in:
-
-```text
-sql/analysis_queries.sql
-```
-
-The project performs the following analyses.
-
----
-
-## 💰 1. Overall Business KPIs
-
-Calculates:
-
-```text
-Total Records
-Total Sales
-Total Profit
-Total Quantity
-Average Discount
-```
-
-### Result
-
-```text
-Total Sales      = 2,296,919.49
-Total Profit     =   286,409.08
-Total Quantity   =    37,871
-Avg. Discount    ≈       15.62%
-```
-
----
-
-# 🌍 2. Regional Performance
-
-Regions are ranked according to total sales.
-
-```text
-1. West
-2. East
-3. Central
-4. South
-```
-
-### Key Insight
-
-**West** generated the highest total sales among the regions in the dataset.
-
----
-
-# 🏷️ 3. Category Performance
-
-The dataset contains three major categories:
-
-```text
-Technology
-Furniture
-Office Supplies
-```
-
-Sales ranking:
-
-```text
-1. Technology
-2. Furniture
-3. Office Supplies
-```
-
-### Key Insight
-
-**Technology** generated the highest total sales and total profit among the categories.
-
----
-
-# 📅 4. Monthly Sales Trends
-
-Monthly aggregation is used to analyze:
-
-* Sales trends.
-* Profit trends.
-* Seasonal behavior.
-* High-performing periods.
-* Low-performing periods.
-
-Example:
-
-```sql
-SELECT
-    DATE_TRUNC(date, MONTH) AS month,
-    SUM(sales) AS total_sales,
-    SUM(profit) AS total_profit
-FROM `YOUR_PROJECT_ID.sales_dataset.sales_table`
-GROUP BY month
-ORDER BY month;
-```
-
----
-
-# 🏆 5. Product Profitability
-
-Product-level analysis calculates:
-
-```text
-Total Sales
-Total Profit
-Total Quantity
-Average Discount
-```
-
-This helps identify:
-
-* High-revenue products.
-* High-profit products.
-* High-volume products.
-* Products affected by heavy discounting.
-
----
-
-# 💸 6. Discount vs. Profitability
-
-Transactions are grouped into discount ranges:
-
-```text
-0%
-1–10%
-11–20%
-21–30%
-31–40%
-41%+
-```
-
-The analysis measures:
-
-```text
-Transaction Count
-Total Sales
-Total Profit
-Average Profit
-```
-
-### Key Insight
-
-Higher discount levels in this dataset are associated with substantially lower profitability, with some high-discount ranges producing negative total profit.
-
-This demonstrates an important business principle:
-
-> **High sales do not necessarily mean high profitability.**
-
----
-
-# 📊 Key Findings
-
-## 🥇 Regional Leader
-
-```text
-West
-```
-
-Highest total sales among the analyzed regions.
-
----
-
-## 🥇 Category Leader
-
-```text
-Technology
-```
-
-Highest total sales and total profit among the categories.
-
----
-
-## 💸 Discount Impact
-
-Higher discount ranges show significantly weaker profitability.
-
-This indicates that discounting should be evaluated using **profitability metrics**, not sales revenue alone.
-
----
-
-# 🧪 Data Quality Summary
-
-| Check              |    Result |
-| ------------------ | --------: |
-| Records            | **9,993** |
-| Columns            |     **9** |
-| Missing Values     |     **0** |
-| Duplicates         |     **0** |
-| Invalid Quantities |     **0** |
-| Invalid Sales      |     **0** |
-| Invalid Discounts  |     **0** |
-
-### Quality Pipeline
+| Check | Result |
+|---|---:|
+| Records | **9,993** |
+| Columns | **9** |
+| Missing Values | **0** |
+| Duplicate Records | **0** |
+| Invalid Quantities | **0** |
+| Invalid Sales | **0** |
+| Invalid Discounts | **0** |
 
 ```text
 Raw Data
@@ -659,91 +415,155 @@ Validation
 
 ---
 
+# 📁 Project Structure
+
+```text
+gcp-data-engineering-pipeline/
+│
+├── data/
+│   ├── sales_data.csv
+│   └── cleaned_sales_data.csv
+│
+├── scripts/
+│   ├── data_exploration.py
+│   ├── data_cleaning.py
+│   ├── data_validation.py
+│   └── load_to_bigquery.py
+│
+├── sql/
+│   ├── views/
+│   │   ├── category_performance.sql
+│   │   ├── monthly_sales.sql
+│   │   ├── product_performance.sql
+│   │   ├── regional_performance.sql
+│   │   ├── sales_summary.sql
+│   │   └── top_products.sql
+│   │
+│   └── analysis_queries.sql
+│
+├── docs/
+│   └── images/
+│       └── dashboard.png
+│
+├── run_pipeline.py
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+---
+
+# ⚙️ Pipeline Orchestration
+
+**`run_pipeline.py`** is the single entry point.
+
+Run:
+
+```bash
+python run_pipeline.py
+```
+
+Execution flow:
+
+```text
+run_pipeline.py
+      │
+      ├── Data Cleaning
+      │
+      ├── Data Validation
+      │
+      ├── BigQuery Load
+      │
+      └── Analytical View Deployment
+```
+
+A failed validation or pipeline stage prevents the workflow from continuing.
+
+---
+
 # 🛠️ Technology Stack
 
 ### Programming
 
-* 🐍 Python
-* 🗄️ SQL
+- Python
+- SQL
 
 ### Python
 
-* Pandas
-* Google Cloud BigQuery Client
+- Pandas
+- Google Cloud BigQuery Client
 
 ### Google Cloud
 
-* Google Cloud Platform
-* Google BigQuery
-* Google Cloud CLI
+- Google Cloud Platform
+- Google BigQuery
+- Google Cloud CLI
+
+### Analytics
+
+- Looker Studio
+- Analytical SQL
+- KPI reporting
+- Business intelligence
 
 ### Data Engineering
 
-* ETL
-* Data Cleaning
-* Data Transformation
-* Data Validation
-* Data Quality
-* Data Warehouse
-* Analytical SQL
-* Pipeline Orchestration
+- ETL
+- Data cleaning
+- Data transformation
+- Data validation
+- Data quality
+- Schema management
+- Cloud data warehousing
+- SQL analytics
+- Pipeline orchestration
 
 ### Development
 
-* Visual Studio Code
-* Git
-* GitHub
-* Google Cloud Console
+- Visual Studio Code
+- Git
+- GitHub
+- Google Cloud Console
 
 ---
 
-# ⚙️ Getting Started
+# 🚀 Getting Started
 
 ## Prerequisites
 
-Make sure the following are installed:
+Install:
 
 ```text
 Python 3.x
 Git
 Google Cloud CLI
-Google Cloud Account
+Google Cloud account
 ```
 
----
-
-## 1. Clone Repository
+## 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/rajaadit11/gcp-data-engineering-pipeline.git
 cd gcp-data-engineering-pipeline
 ```
 
----
-
-## 2. Create Virtual Environment
+## 2. Create a virtual environment
 
 ### Windows PowerShell
 
 ```powershell
 python -m venv .venv
-```
-
-Activate:
-
-```powershell
 .venv\Scripts\Activate.ps1
 ```
 
 ### Windows CMD
 
 ```cmd
+python -m venv .venv
 .venv\Scripts\activate
 ```
 
----
-
-## 3. Install Dependencies
+## 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -759,7 +579,7 @@ Authenticate with Google Cloud:
 gcloud auth login
 ```
 
-Set your project:
+Set the active project:
 
 ```bash
 gcloud config set project YOUR_PROJECT_ID
@@ -777,17 +597,17 @@ Verify:
 gcloud config get-value project
 ```
 
+> Do not commit credential files or secrets to GitHub.
+
 ---
 
 # ▶️ Run the Pipeline
-
-Execute:
 
 ```bash
 python run_pipeline.py
 ```
 
-Expected workflow:
+Expected high-level flow:
 
 ```text
 ============================================================
@@ -800,6 +620,8 @@ Expected workflow:
         ↓
 [3] BIGQUERY LOAD
         ↓
+[4] ANALYTICAL VIEW DEPLOYMENT
+        ↓
 [✓] PIPELINE COMPLETED SUCCESSFULLY
 ```
 
@@ -807,26 +629,26 @@ Expected workflow:
 
 # 🔎 Run SQL Analysis
 
-After the BigQuery load completes:
+After the pipeline completes:
 
 1. Open Google Cloud Console.
 2. Navigate to BigQuery.
 3. Open `sales_dataset`.
-4. Open `sales_table`.
-5. Open the SQL workspace.
-6. Use:
+4. Open the SQL workspace.
+5. Use `sql/analysis_queries.sql`.
+6. Replace `YOUR_PROJECT_ID` with your actual project ID if required.
 
-```text
-sql/analysis_queries.sql
+Example:
+
+```sql
+SELECT
+    DATE_TRUNC(date, MONTH) AS month,
+    SUM(sales) AS total_sales,
+    SUM(profit) AS total_profit
+FROM `YOUR_PROJECT_ID.sales_dataset.sales_table`
+GROUP BY month
+ORDER BY month;
 ```
-
-Replace:
-
-```text
-YOUR_PROJECT_ID
-```
-
-with your actual Google Cloud project ID.
 
 ---
 
@@ -834,10 +656,10 @@ with your actual Google Cloud project ID.
 
 **Never commit credentials to GitHub.**
 
-The repository must not contain:
+Do not commit:
 
 ```text
-❌ Service account private keys
+❌ Service-account private keys
 ❌ application_default_credentials.json
 ❌ API keys
 ❌ Passwords
@@ -846,7 +668,7 @@ The repository must not contain:
 ❌ Cloud credentials
 ```
 
-The following should remain ignored:
+Recommended ignored files/directories:
 
 ```text
 .venv/
@@ -855,159 +677,102 @@ The following should remain ignored:
 __pycache__/
 ```
 
-> Always verify `.gitignore` before pushing the repository.
+Always verify:
+
+```bash
+git status
+```
+
+before pushing.
 
 ---
 
-# 🧠 Data Engineering Concepts Demonstrated
-
-This project demonstrates practical understanding of:
+# 🧠 Engineering Concepts Demonstrated
 
 ```text
                     DATA ENGINEERING
                            │
           ┌────────────────┼────────────────┐
           ▼                ▼                ▼
-         ETL         DATA QUALITY      DATA WAREHOUSE
+         ETL          DATA QUALITY     DATA WAREHOUSE
           │                │                │
           ▼                ▼                ▼
-      Python/Pandas    Validation       BigQuery
+   Python/Pandas       Validation       BigQuery
           │                │                │
           └────────────────┼────────────────┘
                            ▼
                      SQL ANALYTICS
                            │
                            ▼
-                    BUSINESS INSIGHTS
+                    LOOKER STUDIO
+                           │
+                           ▼
+                  BUSINESS INSIGHTS
 ```
 
-### Core Concepts
+### Core concepts
 
-* ETL architecture.
-* Data ingestion.
-* Data transformation.
-* Data cleaning.
-* Data quality validation.
-* Schema management.
-* Cloud data warehousing.
-* Analytical SQL.
-* Aggregations.
-* Pipeline orchestration.
-* Cloud authentication.
-* Reproducibility.
-* Version control.
+- ETL architecture
+- Data ingestion
+- Data transformation
+- Data cleaning
+- Data-quality validation
+- Schema management
+- Cloud data warehousing
+- Analytical SQL
+- Aggregations
+- Date-based analysis
+- Pipeline orchestration
+- Cloud authentication
+- Reproducibility
+- Version control
 
 ---
 
-# 🚀 Roadmap
+# 🏭 Future Production Evolution
 
-The current project implements the core local-to-cloud pipeline.
-
-Future development can evolve it into a more production-oriented data platform.
-
-### Phase 1 — Current
+The current implementation is a **local-to-cloud batch pipeline**. A production-scale version could evolve toward:
 
 ```text
-✅ CSV ingestion
-✅ Data exploration
-✅ Data cleaning
-✅ Data validation
-✅ BigQuery integration
-✅ SQL analytics
-✅ Pipeline orchestration
+Data Sources
+     │
+     ▼
+Cloud Storage / Landing Zone
+     │
+     ▼
+Managed Processing
+     │
+     ▼
+Data Quality + Monitoring
+     │
+     ▼
+BigQuery Data Warehouse
+     │
+     ▼
+SQL / BI Analytics
+     │
+     ▼
+Dashboards & Business Users
 ```
 
-### Phase 2 — Visualization
+Potential future enhancements:
 
-```text
-⬜ Looker Studio Dashboard
-⬜ KPI Dashboard
-⬜ Regional Visualizations
-⬜ Category Analysis
-⬜ Monthly Trends
-⬜ Discount vs Profit Dashboard
-```
+- Google Cloud Storage ingestion
+- Scheduled pipeline execution
+- Managed workflow orchestration
+- Automated testing
+- Centralized logging
+- Monitoring and alerting
+- Data-quality alerts
+- CI/CD
+- Incremental loading
+- Partitioned and clustered BigQuery tables
 
-### Phase 3 — Cloud-Native Ingestion
-
-```text
-⬜ Google Cloud Storage
-⬜ Raw Data Landing Zone
-⬜ Cloud-based ingestion
-```
-
-### Phase 4 — Orchestration
-
-```text
-⬜ Managed workflow orchestration
-⬜ Scheduled execution
-⬜ Pipeline triggers
-```
-
-### Phase 5 — Production Engineering
-
-```text
-⬜ Automated testing
-⬜ Logging
-⬜ Monitoring
-⬜ Error handling
-⬜ Data quality alerts
-⬜ CI/CD
-```
-
----
-
-# 🏭 Future Production Architecture
-
-The long-term architecture can evolve toward:
-
-```text
-                  ┌─────────────────┐
-                  │   Data Source   │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ Cloud Storage   │
-                  │   Raw Zone      │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ Data Processing │
-                  │   & Cleaning    │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ Data Quality    │
-                  │   Validation    │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │    BigQuery     │
-                  │  Data Warehouse │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │   SQL / BI      │
-                  │    Analytics    │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │ Dashboards &    │
-                  │ Business Users  │
-                  └─────────────────┘
-```
+These are **future enhancements**, not claims about the current implementation.
 
 ---
 
 # 📚 Learning Outcomes
-
-By building this project, the following skills are demonstrated:
 
 ### Python
 
@@ -1066,6 +831,32 @@ Error Handling
 
 ---
 
+# 📌 Project Status
+
+<p align="center">
+
+### 🟢 Completed — End-to-End Batch Analytics Pipeline
+
+</p>
+
+```text
+████████████████████████████████████████  Data Ingestion
+████████████████████████████████████████  Data Cleaning
+████████████████████████████████████████  Data Validation
+████████████████████████████████████████  BigQuery
+████████████████████████████████████████  SQL Analytics
+████████████████████████████████████████  Looker Studio
+████████████████████████████████████████  Interactive Filters
+████████████████████████████████████████  Documentation
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Cloud Storage Ingestion
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Scheduled Orchestration
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Monitoring / Alerting
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  CI/CD
+```
+
+---
+
 # 👨‍💻 Author
 
 ## Aditya Raj
@@ -1079,9 +870,9 @@ B.Tech — Electronics & Communication Engineering
 ```text
 Software Engineering
 Data Engineering
-Cloud Computing
 AI / ML
 Data Science
+Cloud Platforms
 System Design
 ```
 
@@ -1091,61 +882,36 @@ System Design
 
 This project goes beyond simply uploading a CSV file to BigQuery.
 
-It demonstrates the complete engineering lifecycle:
+It demonstrates an engineering workflow from raw data to business-facing analytics:
 
 ```text
-             RAW DATA
-                │
-                ▼
-          UNDERSTAND DATA
-                │
-                ▼
-          CLEAN THE DATA
-                │
-                ▼
-         VALIDATE THE DATA
-                │
-                ▼
-          LOAD TO CLOUD
-                │
-                ▼
-          QUERY WITH SQL
-                │
-                ▼
-        GENERATE INSIGHTS
+RAW DATA
+   │
+   ▼
+UNDERSTAND DATA
+   │
+   ▼
+CLEAN DATA
+   │
+   ▼
+VALIDATE DATA
+   │
+   ▼
+LOAD TO CLOUD
+   │
+   ▼
+ANALYZE WITH SQL
+   │
+   ▼
+BUILD BI DASHBOARD
+   │
+   ▼
+GENERATE INSIGHTS
 ```
 
-The emphasis is on **data reliability, modularity, reproducibility, and cloud integration**.
+The main emphasis is on:
 
----
-
-# 📌 Project Status
-
-<p align="center">
-
-### 🟢 Core Pipeline Completed
-
-</p>
-
-```text
-████████████████████████████████████████  Core Pipeline
-
-████████████████████████████████████████  Data Quality
-
-████████████████████████████████████████  BigQuery
-
-████████████████████████████████████████  SQL Analytics
-
-████████████████████████████████████████  Documentation
-
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Dashboard
-
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Cloud Storage
-
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  Monitoring
-
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  CI/CD
-```
+> **Data reliability · Modularity · Reproducibility · Cloud integration · Analytics**
 
 ---
 
@@ -1156,9 +922,7 @@ This project is created for **educational, learning, and portfolio purposes**.
 ---
 
 <p align="center">
-
-### ⭐ If you found this project useful, consider giving it a star!
-
-**Built with Python 🐍 · SQL 🗄️ · BigQuery ☁️ · Curiosity 🚀**
-
+  ⭐ If you found this project useful, consider giving it a star!
+  <br><br>
+  <strong>Built with Python 🐍 · SQL 🗄️ · BigQuery ☁️ · Looker Studio 📊 · Curiosity 🚀</strong>
 </p>
