@@ -1,4 +1,4 @@
-# 🚀 GCP Sales Analytics Pipeline
+# 🚀 GCP Data Engineering Pipeline
 
 <p align="center">
   <strong>An End-to-End Cloud Data Engineering & Analytics Pipeline</strong><br>
