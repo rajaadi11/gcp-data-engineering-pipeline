@@ -1,48 +1,48 @@
 **\# 🚀 GCP Data Engineering Pipeline**
 
-\<p align="center"\>
+<p align="center">
 
-  \<strong\>An End-to-End Cloud Data Engineering & Analytics
-Pipeline\</strong\>\<br\>
+  <strong>An End-to-End Cloud Data Engineering & Analytics
+Pipeline</strong><br>
 
   Python · Pandas · SQL · Google BigQuery · Looker Studio
 
-\</p\>
+</p>
 
-\<p align="center"\>
+<p align="center">
 
-  \<img
+  <img
 src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white"
-alt="Python"\>
+alt="Python">
 
-  \<img
+  <img
 src="https://img.shields.io/badge/Google%20Cloud-GCP-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white"
-alt="Google Cloud"\>
+alt="Google Cloud">
 
-  \<img
+  <img
 src="https://img.shields.io/badge/BigQuery-Data%20Warehouse-4285F4?style=for-the-badge&logo=googlebigquery&logoColor=white"
-alt="BigQuery"\>
+alt="BigQuery">
 
-  \<img
+  <img
 src="https://img.shields.io/badge/SQL-Analytics-CC2927?style=for-the-badge&logo=postgresql&logoColor=white"
-alt="SQL"\>
+alt="SQL">
 
-  \<img
+  <img
 src="https://img.shields.io/badge/Looker%20Studio-BI-F9AB00?style=for-the-badge&logo=google&logoColor=white"
-alt="Looker Studio"\>
+alt="Looker Studio">
 
-\</p\>
+</p>
 
-\<p align="center"\>
+<p align="center">
 
-  \<a
-href="https://datastudio.google.com/reporting/9d39935f-bfc1-4080-a934-7f7d720dbeb5/page/aOo7F"\>
+  <a
+href="https://datastudio.google.com/reporting/9d39935f-bfc1-4080-a934-7f7d720dbeb5/page/aOo7F">
 
-    \<strong\>📊 View Interactive Dashboard\</strong\>
+    <strong>📊 View Interactive Dashboard</strong>
 
-  \</a\>
+  </a>
 
-\</p\>
+</p>
 
 ---
 
@@ -55,7 +55,7 @@ BigQuery\*\*** for analytical processing.
 
 The project demonstrates a practical workflow:
 
-\> **\*\*Ingestion → Exploration → Cleaning → Validation → BigQuery →
+> **\*\*Ingestion → Exploration → Cleaning → Validation → BigQuery →
 SQL Analytics → Interactive BI Dashboard\*\***
 
 The pipeline is modular and orchestrated through a single Python entry
@@ -119,7 +119,7 @@ point, making the workflow reproducible and easy to extend.
 
 \| BigQuery Table \| \`sales_table\` \|
 
-\> One duplicate record was removed during the cleaning stage. The final
+> One duplicate record was removed during the cleaning stage. The final
 validated dataset contains 9,993 records with zero remaining duplicates.
 
 ---
@@ -328,14 +328,14 @@ The final dashboard provides:
 
 \### Dashboard Preview
 
-\![GCP Sales Analytics Dashboard\](docs/images/dashboard.png)
+\![GCP Sales Analytics Dashboard](docs/images/dashboard.png)
 
 \### 🔗 Live Interactive Dashboard
 
-\*\*\[Open GCP Sales Analytics
-Dashboard\](https://datastudio.google.com/reporting/9d39935f-bfc1-4080-a934-7f7d720dbeb5/page/aOo7F)\*\*
+\*\*[Open GCP Sales Analytics
+Dashboard](https://datastudio.google.com/reporting/9d39935f-bfc1-4080-a934-7f7d720dbeb5/page/aOo7F)\*\*
 
-\> The dashboard uses the granular \`sales_table\` as the interactive
+> The dashboard uses the granular \`sales_table\` as the interactive
 source so category and date controls can filter the KPIs and
 visualizations consistently.
 
@@ -608,7 +608,7 @@ profit.
 Higher discount ranges show substantially weaker profitability in this
 dataset, with some high-discount ranges producing negative total profit.
 
-\> \*\*High revenue does not necessarily mean high profitability.\*\*
+> \*\*High revenue does not necessarily mean high profitability.\*\*
 
 \### 📅 Monthly Trends
 
@@ -869,7 +869,7 @@ Google Cloud account
 \`\`\`bash
 
 git clone
-https://github.com/rajaadit11/gcp-data-engineering-pipeline.git
+https://github.com/rajaadi11/gcp-data-engineering-pipeline.git
 
 cd gcp-data-engineering-pipeline
 
@@ -941,7 +941,7 @@ gcloud config get-value project
 
 \`\`\`
 
-\> Do not commit credential files or secrets to GitHub.
+> Do not commit credential files or secrets to GitHub.
 
 ---
 
@@ -963,23 +963,23 @@ Expected high-level flow:
 
 ============================================================
 
-\[1\] DATA CLEANING
+[1] DATA CLEANING
 
         ↓
 
-\[2\] DATA VALIDATION
+[2] DATA VALIDATION
 
         ↓
 
-\[3\] BIGQUERY LOAD
+[3] BIGQUERY LOAD
 
         ↓
 
-\[4\] ANALYTICAL VIEW DEPLOYMENT
+[4] ANALYTICAL VIEW DEPLOYMENT
 
         ↓
 
-\[✓\] PIPELINE COMPLETED SUCCESSFULLY
+[✓] PIPELINE COMPLETED SUCCESSFULLY
 
 \`\`\`
 
@@ -1317,11 +1317,11 @@ Error Handling
 
 \# 📌 Project Status
 
-\<p align="center"\>
+<p align="center">
 
 \### 🟢 Completed --- End-to-End Batch Analytics Pipeline
 
-\</p\>
+</p>
 
 \`\`\`text
 
@@ -1438,7 +1438,7 @@ GENERATE INSIGHTS
 
 The main emphasis is on:
 
-\> \*\*Data reliability · Modularity · Reproducibility · Cloud
+> \*\*Data reliability · Modularity · Reproducibility · Cloud
 integration · Analytics\*\*
 
 ---
@@ -1450,13 +1450,13 @@ purposes\*\*.
 
 ---
 
-\<p align="center"\>
+<p align="center">
 
   ⭐ If you found this project useful, consider giving it a star!
 
-  \<br\>\<br\>
+  <br><br>
 
-  \<strong\>Built with Python 🐍 · SQL 🗄️ · BigQuery ☁️ · Looker Studio
-📊 · Curiosity 🚀\</strong\>
+  <strong>Built with Python 🐍 · SQL 🗄️ · BigQuery ☁️ · Looker Studio
+📊 · Curiosity 🚀</strong>
 
-\</p\>
+</p>
